@@ -45,7 +45,7 @@ while(1):
                 credentials = pd.read_csv('credentials.csv', sep=";")
                 username = credentials.email[0]
                 password = credentials.password[0]
-
+                reciver = credentials.reciver[0]
                 server = smtplib.SMTP('smtp.gmail.com', 587)
 
                 server.ehlo()
@@ -57,7 +57,7 @@ Product price dropped: {}\nPrice: {}\n\nBuy now:\n {}\n\n'.format(title, price, 
 
                 # print(msg)
                 server.sendmail(username,
-                                'luciococorullo17@gmail.com', msg)
+                                reciver, msg)
                 print('sent email.....')
             else:
                 print("Non e' il momento")
