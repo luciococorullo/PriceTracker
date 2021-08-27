@@ -33,7 +33,11 @@ while(1):
                 price = float(soup.find(id='priceblock_saleprice').get_text().replace(
                     '$', '').replace(',', '').strip())
             except:
-                price = ''
+                try:
+                    price = float(soup.find(id='priceblock_dealprice').get_text().replace(
+                        '.', '').replace('€', '').replace(',', '.').strip())
+                except:
+                    price = ''
         print(title + ": ")
         print(price)
         try:
